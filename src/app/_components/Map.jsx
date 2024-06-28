@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { useEffect } from 'react';
 
+
 const Map = ({ location }) => {
   useEffect(() => {
     console.log('Location object:', location);
@@ -17,17 +18,16 @@ const Map = ({ location }) => {
 
   // Define a custom icon for the marker (optional)
   const customIcon = new L.Icon({
-    iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
-    iconSize: [38, 95],
+    iconUrl: '/map.png',
+    iconSize: [25, 25],
     iconAnchor: [22, 94],
     popupAnchor: [-3, -76],
-    shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-    shadowSize: [50, 64],
-    shadowAnchor: [4, 62],
+    
   });
 
   return (
-    <MapContainer center={position} zoom={13} style={{ height: '400px', width: '100%' }}>
+    <div className="w-full h-[75vh] md:h-[85vh] lg:h-[90vh]">
+    <MapContainer center={position} zoom={13} className="w-full h-full">
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -40,6 +40,7 @@ const Map = ({ location }) => {
         </Marker>
       )}
     </MapContainer>
+    </div>
   );
 };
 

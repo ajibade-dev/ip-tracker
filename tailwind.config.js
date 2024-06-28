@@ -8,10 +8,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors:{
+        "very-dark-gray" : "hsl(0, 0%, 17%)",
+        "dark-gray" : "hsl(0, 0%, 59%)"
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'custom-desk': "url('/pattern-bg-desktop.png')",
+        'custom-mobile': "url('/pattern-bg-mobile.png')",
+
       },
     },
   },

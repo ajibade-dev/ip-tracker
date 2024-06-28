@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const IPInput = ({ setIpData }) => {
   const [ip, setIp] = useState('');
@@ -23,17 +24,25 @@ https://geo.ipify.org/api/v2/country,city?apiKey=at_EQRfo6fkZjRxlyAJ2UZBRIkwgB7V
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <input
+    <div className="flex flex-col items-center justify-center">
+      
+      <div className="relative w-full md:h-[40vh] h-[35vh] bg-custom-mobile md:bg-custom-desk bg-cover bg-center flex flex-col gap-4 items-center pt-5">
+      <h1 className='text-white font-semibold text-3xl mb-5'>IP Adress Tracker</h1>
+        <div className='flex flex-row'>
+        <input
         type="text"
         value={ip}
         onChange={(e) => setIp(e.target.value)}
-        className="p-2 border rounded"
-        placeholder="Enter IP address"
+        className="p-2 border rounded-l-lg md:w-[30vw] w-full"
+        placeholder="Search for any IP or domain"
       />
-      <button onClick={handleSearch} className="mt-2 p-2 bg-blue-500 text-white rounded">
-        Search
+      <button onClick={handleSearch} className="p-4 bg-very-dark-gray text-white rounded-r-md">
+        <Image src="/icon-arrow.svg" width={10} height={10}/>
       </button>
+        </div>
+    
+      </div>
+      
     </div>
   );
 };
