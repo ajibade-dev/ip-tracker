@@ -26,7 +26,7 @@ https://geo.ipify.org/api/v2/country,city?apiKey=at_EQRfo6fkZjRxlyAJ2UZBRIkwgB7V
   return (
     <div className="flex flex-col items-center justify-center">
       
-      <div className="relative w-full lg:h-[30vh] md:h-[25vh] h-[35vh] bg-custom-mobile md:bg-custom-desk bg-cover bg-center flex flex-col gap-4 items-center pt-5">
+      <div className="relative w-full lg:h-[35vh] md:h-[25vh] h-[35vh] bg-custom-mobile md:bg-custom-desk bg-cover bg-center flex flex-col gap-4 items-center pt-5">
       <h1 className='text-white font-semibold md:text-3xl text-xl md:mb-5 mb-2'>IP Adress Tracker</h1>
         <div className='flex flex-row'>
         <input

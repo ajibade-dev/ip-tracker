@@ -43,7 +43,7 @@ https://geo.ipify.org/api/v2/country,city?apiKey=at_EQRfo6fkZjRxlyAJ2UZBRIkwgB7V
             </div>
           {/* fpr the timezone */}
           <div className=' md:border-r-2 md:border-slate-200 md:pr-8 px-5 mx-3 text-center md:text-start'>
-          <p className='text-[8px] text-dark-gray font-bold tracking-widest '><>Timezone:</></p>
+          <p className='text-[8px] text-dark-gray font-bold tracking-widest '><>TIMEZONE:</></p>
           <p className='md:text-xl text-base font-bold'>{ipData.location.timezone}</p>
           </div>
           {/* for the isp */}
