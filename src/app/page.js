@@ -2,7 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import IPInput from './_components/IPinput';
-import Map from './_components/Map';
+import dynamic from 'next/dynamic';
+
+// Disable SSR for the Map component
+const Map = dynamic(() => import('./_components/Map'), { ssr: false });
 
 export default function Home() {
   const [ipData, setIpData] = useState(null);
@@ -11,7 +14,7 @@ export default function Home() {
     const fetchUserIP = async () => {
       try {
         const response = await fetch(`
-https://geo.ipify.org/api/v2/country,city?apiKey=at_EQRfo6fkZjRxlyAJ2UZBRIkwgB7VN`);
+        https://geo.ipify.org/api/v2/country,city?apiKey=at_EQRfo6fkZjRxlyAJ2UZBRIkwgB7VN`);
         const data = await response.json();
         console.log(data);
         setIpData(data);
