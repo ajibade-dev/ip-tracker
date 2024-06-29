@@ -52,7 +52,7 @@ export default function Home() {
           {/* for the isp */}
           <div className='md:pr-8 px-5 mx-3 text-center md:text-start'>
           <p className='text-[8px] text-dark-gray font-bold tracking-widest'>ISP:</p>
-          <p className='md:text-xl text-base font-bold'>{ipData.isp}</p>
+          <p className='md:text-xl text-base font-bold lg:w-3/4 w-full'>{ipData.isp}</p>
           </div>
             </div>
          

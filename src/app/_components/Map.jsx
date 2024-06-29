@@ -1,8 +1,23 @@
 "use client"
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { useEffect } from 'react';
+
+// Custom hook to handle map view update
+const MapViewUpdater = ({ position }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (position) {
+      map.setView(position, 13, {
+        animate: true,
+      });
+    }
+  }, [position, map]);
+
+  return null;
+};
 
 
 const Map = ({ location }) => {
@@ -26,19 +41,22 @@ const Map = ({ location }) => {
 
   return (
     <div className="w-full h-[75vh] md:h-[85vh] lg:h-[90vh]">
-    <MapContainer center={position} zoom={13} className="w-full h-full">
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      {location && (
-        <Marker position={position} icon={customIcon}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-      )}
-    </MapContainer>
+      <MapContainer center={position} zoom={2} className="w-full h-full">
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {location && (
+          <>
+            <Marker position={position} icon={customIcon}>
+              <Popup>
+                A pretty CSS3 popup. <br /> Easily customizable.
+              </Popup>
+            </Marker>
+            <MapViewUpdater position={position} />
+          </>
+        )}
+      </MapContainer>
     </div>
   );
 };
